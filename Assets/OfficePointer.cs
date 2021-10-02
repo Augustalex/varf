@@ -12,16 +12,15 @@ public class OfficePointer : MonoBehaviour
 
     void Start()
     {
-        _camera = FindObjectOfType<Camera>();
         _gameManager = FindObjectOfType<GameManager>();
-        
+
         DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
         if (_gameManager.currentPhase != GameManager.GamePhase.Planning) return;
-        
+
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (pointer && !Input.GetMouseButton(0))
@@ -62,6 +61,6 @@ public class OfficePointer : MonoBehaviour
 
     public void ReloadCamera()
     {
-        _camera = FindObjectOfType<Camera>();
+        _camera = FindObjectOfType<OfficeCamera>().gameObject.GetComponent<Camera>();
     }
 }
