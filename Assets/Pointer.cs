@@ -7,14 +7,20 @@ public class Pointer : MonoBehaviour
     public GameObject pointer;
 
     private Camera _camera;
+    private GameManager _gameManager;
 
     void Start()
     {
-        _camera = GetComponent<Camera>();
+        _camera = FindObjectOfType<Camera>();
+        _gameManager = FindObjectOfType<GameManager>();
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
+        if (_gameManager.currentPhase != GameManager.GamePhase.Construction) return;
+
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (pointer)
@@ -64,5 +70,10 @@ public class Pointer : MonoBehaviour
                 pointer.SetActive(false);
             }
         }
+    }
+    
+    public void ReloadCamera()
+    {
+        _camera = FindObjectOfType<Camera>();
     }
 }
