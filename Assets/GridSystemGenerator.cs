@@ -19,10 +19,10 @@ public class GridSystemGenerator : MonoBehaviour
                 var node = Instantiate(gridNodeTemplate);
                 node.transform.position = position;
                 
-                position += Vector3.back * 1.1f;
+                position += Vector3.back;
             }
             
-            position += Vector3.right * 1.1f;
+            position += Vector3.right;
             position = new Vector3(position.x, position.y, startZ);
         }
     }

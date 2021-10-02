@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pointer : MonoBehaviour
 {
     public GameObject pointer;
-    
+
     private Camera _camera;
 
     void Start()
@@ -17,23 +17,52 @@ public class Pointer : MonoBehaviour
     {
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-        if (hits.Length > 0)
+        if (pointer)
         {
-            foreach (var hit in hits)
+            var gridObject = pointer.GetComponent<GridObject>();
+            if (!gridObject) return;
+
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+            if (hits.Length > 0)
             {
-                if (hit.collider.CompareTag("GridNode"))
+                foreach (var hit in hits)
                 {
-                    pointer.SetActive(true);
-                    
-                    pointer.transform.position = hit.transform.position + Vector3.up;
-                    return;
+                    if (hit.collider.CompareTag("GridNode"))
+                    {
+                        pointer.SetActive(true);
+
+                        var gridNode = hit.collider.GetComponent<GridNode>();
+                        if (gridObject.Fits(gridNode))
+                        {
+                            gridObject.SetAbleToBuild();
+
+                            pointer.transform.position = hit.transform.position + Vector3.up;
+
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                pointer = null; // Note: Pointer is reassigned after a grid object is built by an event listener, so be careful not to do this after Build
+                                gridObject.Build(gridNode);
+                            }
+                        }
+                        else
+                        {
+                            gridObject.SetUnableToBuild();
+
+                            pointer.transform.position = new Vector3(
+                                hit.point.x,
+                                hit.transform.position.y,
+                                hit.point.z
+                            ) + Vector3.up;
+                        }
+
+                        return;
+                    }
                 }
             }
-        }
-        else
-        {
-            pointer.SetActive(false);
+            else
+            {
+                pointer.SetActive(false);
+            }
         }
     }
 }
