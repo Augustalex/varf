@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GridNode : MonoBehaviour
 {
+    public float scale = 1;
     private GridObject _occupiedBy;
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class GridNode : MonoBehaviour
     [CanBeNull]
     public GridNode GetNodeInDirection(Vector3 direction)
     {
-        var hits = Physics.RaycastAll(transform.position, direction, .5f);
+        var hits = Physics.RaycastAll(transform.position, direction, scale * .5f);
         if (hits.Length > 0)
         {
             foreach (var hit in hits)

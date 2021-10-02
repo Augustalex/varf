@@ -6,18 +6,21 @@ public class GridSystemGenerator : MonoBehaviour
 {
     public GameObject gridNodeTemplate;
 
-    private const int Size = 10;
+    public float scale = 1;
+    public int xSize = 10;
+    public int zSize = 10;
     
     void Start()
     {
         var startZ = transform.position.z;
         var position = transform.position;
-        for (var x = 0; x < Size; x++)
+        for (var x = 0; x < xSize; x++)
         {
-            for (int y = 0; y < Size; y++)
+            for (int y = 0; y < zSize; y++)
             {
-                var node = Instantiate(gridNodeTemplate);
-                node.transform.position = position;
+                var node = Instantiate(gridNodeTemplate, transform);
+                node.transform.position = position - Vector3.up * .5f;
+                node.GetComponent<GridNode>().scale = scale;
                 
                 position += Vector3.back;
             }
