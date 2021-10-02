@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GridNode
+  - Desk
+  - Item
   layers:
   - Default
   - TransparentFX

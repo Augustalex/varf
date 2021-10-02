@@ -7,14 +7,19 @@ public class Pointer : MonoBehaviour
     public GameObject pointer;
 
     private Camera _camera;
+    private GameManager _gameManager;
 
     void Start()
     {
-        _camera = GetComponent<Camera>();
+        _gameManager = FindObjectOfType<GameManager>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
+        if (_gameManager.currentPhase != GameManager.GamePhase.Construction) return;
+
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (pointer)
@@ -40,7 +45,8 @@ public class Pointer : MonoBehaviour
 
                             if (Input.GetMouseButtonDown(0))
                             {
-                                pointer = null; // Note: Pointer is reassigned after a grid object is built by an event listener, so be careful not to do this after Build
+                                pointer =
+                                    null; // Note: Pointer is reassigned after a grid object is built by an event listener, so be careful not to do this after Build
                                 gridObject.Build(gridNode);
                             }
                         }
@@ -64,5 +70,10 @@ public class Pointer : MonoBehaviour
                 pointer.SetActive(false);
             }
         }
+    }
+
+    public void ReloadCamera()
+    {
+        _camera = FindObjectOfType<WorldCamera>().gameObject.GetComponent<Camera>();
     }
 }
