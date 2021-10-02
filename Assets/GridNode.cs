@@ -7,17 +7,20 @@ public class GridNode : MonoBehaviour
 {
     public float scale = 1;
     private GridObject _occupiedBy;
+    public bool hideNode;
+    private GameObject _dirtBlock;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _dirtBlock = GetComponentInChildren<MeshRenderer>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(hideNode && _dirtBlock.activeSelf) {_dirtBlock.SetActive(false);}
+        if(!hideNode && !_dirtBlock.activeSelf) {_dirtBlock.SetActive(true);}
     }
 
     public bool Occupied()

@@ -22,7 +22,7 @@ public class Pointer : MonoBehaviour
             var gridObject = pointer.GetComponent<GridObject>();
             if (!gridObject) return;
 
-            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 200f);
             if (hits.Length > 0)
             {
                 foreach (var hit in hits)

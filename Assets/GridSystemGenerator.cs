@@ -5,7 +5,8 @@ using UnityEngine;
 public class GridSystemGenerator : MonoBehaviour
 {
     public GameObject gridNodeTemplate;
-
+    public bool hideNodes = false;
+    
     public float scale = 1;
     public int xSize = 10;
     public int zSize = 10;
@@ -20,7 +21,10 @@ public class GridSystemGenerator : MonoBehaviour
             {
                 var node = Instantiate(gridNodeTemplate, transform);
                 node.transform.position = position - Vector3.up * .5f;
-                node.GetComponent<GridNode>().scale = scale;
+
+                var gridNode = node.GetComponent<GridNode>();
+                gridNode.scale = scale;
+                gridNode.hideNode = hideNodes;
                 
                 position += Vector3.back;
             }
