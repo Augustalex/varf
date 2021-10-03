@@ -23,6 +23,7 @@ public class Reporter : MonoBehaviour
     
     private static Reporter _instance;
     private float _cooldown = 30;
+    private bool _paused;
 
     public static Reporter Get()
     {
@@ -39,8 +40,20 @@ public class Reporter : MonoBehaviour
         
     }
 
+    public void Pause()
+    {
+        _paused = true;
+    }
+
+    public void Unpause()
+    {
+        _paused = false;
+    }
+
     void Update()
     {
+        if (_paused) return;
+        
         _cooldown -= Time.deltaTime;
 
         if (_cooldown < 0)

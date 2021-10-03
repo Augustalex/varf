@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BoatConstructionAssignment : Paper
 {
@@ -13,7 +15,8 @@ public class BoatConstructionAssignment : Paper
         _gameManager = FindObjectOfType<GameManager>();
         _workerDaysCount = GetComponentInChildren<WorkerDaysCountOnReport>();
 
-        _workerDaysCount.Set(count);
+        var actualCount = Random.Range(1000, 10000);
+        _workerDaysCount.Set(actualCount);
     }
     
     public override void Enact()

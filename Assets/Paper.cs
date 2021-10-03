@@ -33,6 +33,7 @@ public abstract class Paper : MonoBehaviour
             var stamp = other.GetComponent<Stamp>();
             if (stamp)
             {
+                stamp.StampSound();
                 Approve(stamp.transform);
             }
         }

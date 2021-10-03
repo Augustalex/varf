@@ -79,9 +79,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Litet
+  m_text: 'Last-
 
-    Skepp'
+    fartyg'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}

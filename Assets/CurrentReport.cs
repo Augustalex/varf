@@ -11,6 +11,7 @@ public class CurrentReport : Paper
     private PaperGenerator _paperGenerator;
     private GameManager _gameManager;
     private BoatConstructionCount _boatConstructedCount;
+    private WorkerMoraleScore _officeScore;
 
     void Start()
     {
@@ -22,14 +23,31 @@ public class CurrentReport : Paper
         _deathCount = GetComponentInChildren<DeathCount>();
         _accidentCount = GetComponentInChildren<AccidentCount>();
         _boatConstructedCount = GetComponentInChildren<BoatConstructionCount>();
+        _officeScore = GetComponentInChildren<WorkerMoraleScore>();
 
         _paperGenerator.Pause();
         _gameManager.Pause();
+        _reporter.Pause();
 
+        float newOfficeScore = _gameManager.GetOfficeScore();
+
+        if (_reporter.dead + _reporter.accidents > (_reporter.hired / 10))
+        {
+            newOfficeScore -= 1;
+        }
+
+        if (_reporter.boatsConstructed > 1)
+        {
+            newOfficeScore += .5f;
+        }
+        
+        _gameManager.SetOfficeScore(newOfficeScore);
+        
         _hiredCount.Set(_reporter.hired);
         _deathCount.Set(_reporter.dead);
         _accidentCount.Set(_reporter.accidents);
         _boatConstructedCount.Set(_reporter.boatsConstructed);
+        _officeScore.Set(newOfficeScore);
         
         _reporter.Clean();
     }
@@ -43,5 +61,6 @@ public class CurrentReport : Paper
     {
         _paperGenerator.Unpause();
         _gameManager.Unpause();
+        _reporter.Unpause();
     }
 }

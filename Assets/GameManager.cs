@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     private int _boatAssignmentWorkerDays;
     private bool _paused;
 
+    private float _officeScore = 5;
+
     void Start()
     {
         templateBank = GetComponent<TemplateBank>();
@@ -133,5 +135,15 @@ public class GameManager : MonoBehaviour
     public bool HasBoatConstructionInProgress()
     {
         return _boatConstructionInProgress;
+    }
+
+    public float GetOfficeScore()
+    {
+        return _officeScore;
+    }
+
+    public void SetOfficeScore(float score)
+    {
+        _officeScore = score;
     }
 }

@@ -7,7 +7,7 @@ public class WorkerMoraleScore : MonoBehaviour
 {
     public string prefix;
     private TMP_Text _text;
-    private int _count;
+    private float _count;
 
     void Start()
     {
@@ -16,10 +16,10 @@ public class WorkerMoraleScore : MonoBehaviour
 
     void Update()
     {
-        _text.text = $"{prefix}{_count}/10";
+        _text.text = $"{prefix}{Mathf.Round(_count * 10) / 10}/10";
     }
 
-    public void Set(int count)
+    public void Set(float count)
     {
         _count = count;
     }
