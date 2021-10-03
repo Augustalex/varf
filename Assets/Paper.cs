@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Paper : MonoBehaviour
+public abstract class Paper : MonoBehaviour
 {
     public GameObject approvalDecalTemplate;
     private bool _approved;
@@ -17,8 +17,14 @@ public class Paper : MonoBehaviour
         );
         decal.transform.rotation = stampTransform.rotation;
 
+        if (!_approved)
+        {
+            Enact();
+        }
         _approved = true;
     }
+
+    public abstract void Enact();
 
     private void OnTriggerEnter(Collider other)
     {

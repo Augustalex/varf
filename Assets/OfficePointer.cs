@@ -23,40 +23,62 @@ public class OfficePointer : MonoBehaviour
 
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        if (pointer && !Input.GetMouseButton(0))
-        {
-            RaycastHit[] hits = Physics.RaycastAll(ray, 50f);
-            if (hits.Length > 0)
+        var isStamp = pointer && pointer.GetComponent<Stamp>() != null;
+
+        // if (isStamp)
+        // {
+        //     if (pointer && !Input.GetMouseButton(0))
+        //     {
+        //         RaycastHit[] hits = Physics.RaycastAll(ray, 50f);
+        //         if (hits.Length > 0)
+        //         {
+        //             foreach (var hit in hits)
+        //             {
+        //                 if (hit.collider.CompareTag("Desk") || hit.collider.CompareTag("TrashArea"))
+        //                 {
+        //                     pointer.transform.position = hit.point + Vector3.up * 2;
+        //                 }
+        //             }
+        //         }
+        //     }
+        //
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        //         RaycastHit hit;
+        //         if (Physics.Raycast(ray, out hit, 50f))
+        //         {
+        //             if (hit.collider.CompareTag("Desk"))
+        //             {
+        //                 pointer = null;
+        //             }
+        //         }
+        //     }
+        // }
+        // else
+        // {
+            if (pointer)
             {
-                foreach (var hit in hits)
+                RaycastHit[] hits = Physics.RaycastAll(ray, 50f);
+                if (hits.Length > 0)
                 {
-                    if (hit.collider.CompareTag("Desk"))
+                    foreach (var hit in hits)
                     {
-                        pointer.transform.position = hit.point + Vector3.up * 2;
+                        if (hit.collider.CompareTag("Desk") || hit.collider.CompareTag("TrashArea"))
+                        {
+                            pointer.transform.position = hit.point + Vector3.up * 2;
+                        }
                     }
                 }
             }
-        }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            var isStamp = pointer && pointer.GetComponent<Stamp>() != null;
-            if (isStamp) 
-            { 
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 50f))
-                {
-                    if (hit.collider.CompareTag("Desk"))
-                    {
-                        pointer = null;
-                    }
-                } 
-            }
-            else if (pointer)
+            if (Input.GetMouseButtonUp(0))
             {
-                pointer = null;
+                if (pointer)
+                {
+                    pointer = null;
+                }
             }
-            else
+            else if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 50f))
@@ -69,9 +91,9 @@ public class OfficePointer : MonoBehaviour
                     {
                         hit.collider.GetComponent<Clickable>().OnClick();
                     }
-                } 
+                }
             }
-        }
+        // }
     }
 
     public void ReloadCamera()

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4464207755096266200}
   - component: {fileID: 3071979980419321466}
   - component: {fileID: 6208807163315735393}
-  - component: {fileID: 2648944942922151541}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Item
@@ -46,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5857487, y: 0.10290146, z: 5.0738716}
-  m_Center: {x: 0.015831947, y: 0.0052776337, z: -0.01055336}
+  m_Size: {x: 3.5857487, y: 0.15931801, z: 6.0172825}
+  m_Center: {x: 0.015831947, y: 0.0428887, z: 0.0035510063}
 --- !u!54 &3071979980419321466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,19 +76,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48883247, y: 0.06122671, z: 2.8895822}
   m_Center: {x: 0.008287102, y: 0.12113201, z: 0.022111893}
---- !u!114 &2648944942922151541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447023846534094952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b146358225102dc4c968a5546ca4f827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  approvalDecalTemplate: {fileID: 6903209991995839287, guid: 84448d4b36078b342b2b717db9231264, type: 3}
 --- !u!1 &3170730102441188137
 GameObject:
   m_ObjectHideFlags: 0
