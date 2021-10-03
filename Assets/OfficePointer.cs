@@ -40,21 +40,36 @@ public class OfficePointer : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 50f))
+            var isStamp = pointer && pointer.GetComponent<Stamp>() != null;
+            if (isStamp) 
+            { 
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 50f))
+                {
+                    if (hit.collider.CompareTag("Desk"))
+                    {
+                        pointer = null;
+                    }
+                } 
+            }
+            else if (pointer)
             {
-                if (hit.collider.CompareTag("Desk"))
+                pointer = null;
+            }
+            else
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 50f))
                 {
-                    pointer = null;
-                }
-                else if (hit.collider.CompareTag("Item"))
-                {
-                    pointer = hit.collider.gameObject;
-                }
-                else if (hit.collider.GetComponent<Clickable>())
-                {
-                    hit.collider.GetComponent<Clickable>().OnClick();
-                }
+                    if (hit.collider.CompareTag("Item"))
+                    {
+                        pointer = hit.collider.gameObject;
+                    }
+                    else if (hit.collider.GetComponent<Clickable>())
+                    {
+                        hit.collider.GetComponent<Clickable>().OnClick();
+                    }
+                } 
             }
         }
     }
