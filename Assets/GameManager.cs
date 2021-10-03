@@ -56,25 +56,25 @@ public class GameManager : MonoBehaviour
             {
                 _reporter.ReportAccident(1);
             }
+        }
+        
+        if (_dayCooldown < 0)
+        {
+            _dayCooldown = 1;
 
-            if (_dayCooldown < 0)
+            if (_boatConstructionInProgress)
             {
-                _dayCooldown = 10;
+                _boatProgress += _workers;
 
-                if (_boatConstructionInProgress)
+                if (_boatProgress > _boatAssignmentWorkerDays)
                 {
-                    _boatProgress += _workers;
-                    
-                    if (_boatProgress > _boatAssignmentWorkerDays)
-                    {
-                        _boatConstructionInProgress = false;
-                        _reporter.BoatConstructed();
-                    }
+                    _boatConstructionInProgress = false;
+                    _reporter.BoatConstructed();
                 }
             }
-
-            _dayCooldown -= Time.deltaTime;
         }
+
+        _dayCooldown -= Time.deltaTime;
     }
 
     public void StartBoatConstructionAssignment(int workerDays)
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         _boatAssignmentWorkerDays = workerDays;
         _boatConstructionInProgress = true;
     }
-    
+
     public void GoToPlanningPhase()
     {
         currentPhase = GamePhase.Planning;
@@ -104,8 +104,22 @@ public class GameManager : MonoBehaviour
 
     public int GetBoatProgressionPercentage()
     {
-        double percentageFactor = _boatProgress / _boatAssignmentWorkerDays;
+        if (_boatConstructionInProgress)
+        {
+            var boatProgress = (double) _boatProgress;
+            var assignmentTotal = (double) _boatAssignmentWorkerDays;
+            double percentageFactor = boatProgress / assignmentTotal;
+            Debug.Log($"{percentageFactor} - {boatProgress} - {assignmentTotal}");
+            return (int) Math.Ceiling(percentageFactor * 100);
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
-        return (int) Math.Ceiling(percentageFactor * 100);
+    public bool HasBoatConstructionInProgress()
+    {
+        return _boatConstructionInProgress;
     }
 }

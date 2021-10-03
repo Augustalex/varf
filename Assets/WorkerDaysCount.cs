@@ -16,6 +16,13 @@ public class WorkerDaysCount : MonoBehaviour
 
     void Update()
     {
-        _text.text = $"{_gameManager.GetBoatProgressionPercentage()}%";
+        if (_gameManager.HasBoatConstructionInProgress())
+        {
+        _text.text = $"Uppdragsstatus: {_gameManager.GetBoatProgressionPercentage()}%";
+        }
+        else
+        {
+        _text.text = $"Inget aktivt uppdrag";
+        }
     }
 }

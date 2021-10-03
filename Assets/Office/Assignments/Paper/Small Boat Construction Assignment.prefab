@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0061e6a89b240a2418a61178152e5419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  approvalDecalTemplate: {fileID: 6903209991995839287, guid: 84448d4b36078b342b2b717db9231264, type: 3}
+  count: 10000
 --- !u!1 &5446210881410583885
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ GameObject:
   - component: {fileID: 3303027218420000290}
   - component: {fileID: 5305621063245645260}
   - component: {fileID: 4320786863568394856}
-  - component: {fileID: 4742878798710086591}
+  - component: {fileID: 6583423062919280451}
   m_Layer: 5
   m_Name: WorkerDaysCount
   m_TagString: Untagged
@@ -283,7 +285,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4742878798710086591
+--- !u!114 &6583423062919280451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,7 +294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7677740100414942092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db44ba06c9f7f5448cd8490cddfb854, type: 3}
+  m_Script: {fileID: 11500000, guid: 983deb5159e44320aef39bcc33820a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9054668705494151142
