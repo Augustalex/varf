@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private int _boatProgress;
     private bool _boatConstructionInProgress;
     private int _boatAssignmentWorkerDays;
+    private bool _paused;
 
     void Start()
     {
@@ -42,8 +43,20 @@ public class GameManager : MonoBehaviour
         GoToPlanningPhase();
     }
 
+    public void Pause()
+    {
+        _paused = true;
+    }
+
+    public void Unpause()
+    {
+        _paused = false;
+    }
+    
     private void Update()
     {
+        if (_paused) return;
+        
         if (_workers > 0)
         {
             if (Random.value < .001)
@@ -109,7 +122,6 @@ public class GameManager : MonoBehaviour
             var boatProgress = (double) _boatProgress;
             var assignmentTotal = (double) _boatAssignmentWorkerDays;
             double percentageFactor = boatProgress / assignmentTotal;
-            Debug.Log($"{percentageFactor} - {boatProgress} - {assignmentTotal}");
             return (int) Math.Ceiling(percentageFactor * 100);
         }
         else
