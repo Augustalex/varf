@@ -580,7 +580,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 928651277768955726, guid: 21dc0956ea018db49bcd75c0320fbd33, type: 3}
       propertyPath: m_Name
-      value: Stamp
+      value: Stamp2
       objectReference: {fileID: 0}
     - target: {fileID: 928651277768955727, guid: 21dc0956ea018db49bcd75c0320fbd33, type: 3}
       propertyPath: m_RootOrder

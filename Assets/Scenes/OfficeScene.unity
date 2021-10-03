@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -72.577
       objectReference: {fileID: 0}
+    - target: {fileID: 4359003637890202945, guid: dbcab22486f79a1499d6292c48de8b62, type: 3}
+      propertyPath: m_Name
+      value: Stamp2
+      objectReference: {fileID: 0}
     - target: {fileID: 6587460074860022380, guid: dbcab22486f79a1499d6292c48de8b62, type: 3}
       propertyPath: m_Enabled
       value: 1
