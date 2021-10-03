@@ -16,6 +16,6 @@ public class WorkerCount : MonoBehaviour
 
     void Update()
     {
-        _text.text = _gameManager.GetWorkerCount().ToString();
+        _text.text = $"Arbetare: {_gameManager.GetWorkerCount()}";
     }
 } 

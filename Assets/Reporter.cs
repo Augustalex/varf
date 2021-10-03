@@ -19,7 +19,7 @@ public class Reporter : MonoBehaviour
     public int accidents;
     
     private static Reporter _instance;
-    private float _cooldown = 60;
+    private float _cooldown = 30;
 
     public static Reporter Get()
     {
@@ -42,7 +42,7 @@ public class Reporter : MonoBehaviour
 
         if (_cooldown < 0)
         {
-            _cooldown = 15;
+            _cooldown = 30;
 
             GenerateReport();
         }
