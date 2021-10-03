@@ -9,21 +9,27 @@ public class CurrentReport : Paper
     private Reporter _reporter;
     private AccidentCount _accidentCount;
     private PaperGenerator _paperGenerator;
+    private GameManager _gameManager;
+    private BoatConstructionCount _boatConstructedCount;
 
     void Start()
     {
         _paperGenerator = FindObjectOfType<PaperGenerator>();
+        _gameManager = FindObjectOfType<GameManager>();
         _reporter = Reporter.Get();
         
         _hiredCount = GetComponentInChildren<HiredCount>();
         _deathCount = GetComponentInChildren<DeathCount>();
         _accidentCount = GetComponentInChildren<AccidentCount>();
+        _boatConstructedCount = GetComponentInChildren<BoatConstructionCount>();
 
         _paperGenerator.Pause();
-        
+        _gameManager.Pause();
+
         _hiredCount.Set(_reporter.hired);
         _deathCount.Set(_reporter.dead);
         _accidentCount.Set(_reporter.accidents);
+        _boatConstructedCount.Set(_reporter.boatsConstructed);
         
         _reporter.Clean();
     }
@@ -36,5 +42,6 @@ public class CurrentReport : Paper
     public override void Enact()
     {
         _paperGenerator.Unpause();
+        _gameManager.Unpause();
     }
 }

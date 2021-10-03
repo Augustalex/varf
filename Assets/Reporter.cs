@@ -18,6 +18,9 @@ public class Reporter : MonoBehaviour
     [NonSerialized]
     public int accidents;
     
+    [NonSerialized]
+    public int boatsConstructed;
+    
     private static Reporter _instance;
     private float _cooldown = 30;
 
@@ -68,13 +71,17 @@ public class Reporter : MonoBehaviour
         dead += count;
     }
 
-    public void BoatConstructed() {}
+    public void BoatConstructed()
+    {
+        boatsConstructed += 1;
+    }
 
     public void Clean()
     {
         hired = 0;
         dead = 0;
         accidents = 0;
+        boatsConstructed = 0;
     }
 
     public void ReportAccident(int count)

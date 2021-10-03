@@ -18,11 +18,11 @@ public class WorkerDaysCount : MonoBehaviour
     {
         if (_gameManager.HasBoatConstructionInProgress())
         {
-        _text.text = $"Uppdragsstatus: {_gameManager.GetBoatProgressionPercentage()}%";
+            _text.text = $"Uppdragsstatus: {_gameManager.GetBoatProgressionPercentage()}%";
         }
         else
         {
-        _text.text = $"Inget aktivt uppdrag";
+            _text.text = $"Inget aktivt uppdrag";
         }
     }
 }
