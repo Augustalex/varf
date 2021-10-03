@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     private int _workers;
     private Reporter _reporter;
+    private double _dayCooldown;
+    private int _boatProgress;
+    private bool _boatConstructionInProgress;
+    private int _boatAssignmentWorkerDays;
 
     void Start()
     {
@@ -52,9 +56,34 @@ public class GameManager : MonoBehaviour
             {
                 _reporter.ReportAccident(1);
             }
+
+            if (_dayCooldown < 0)
+            {
+                _dayCooldown = 10;
+
+                if (_boatConstructionInProgress)
+                {
+                    _boatProgress += _workers;
+                    
+                    if (_boatProgress > _boatAssignmentWorkerDays)
+                    {
+                        _boatConstructionInProgress = false;
+                        _reporter.BoatConstructed();
+                    }
+                }
+            }
+
+            _dayCooldown -= Time.deltaTime;
         }
     }
 
+    public void StartBoatConstructionAssignment(int workerDays)
+    {
+        _boatProgress = 0;
+        _boatAssignmentWorkerDays = workerDays;
+        _boatConstructionInProgress = true;
+    }
+    
     public void GoToPlanningPhase()
     {
         currentPhase = GamePhase.Planning;
@@ -71,5 +100,12 @@ public class GameManager : MonoBehaviour
     public int GetWorkerCount()
     {
         return _workers;
+    }
+
+    public int GetBoatProgressionPercentage()
+    {
+        double percentageFactor = _boatProgress / _boatAssignmentWorkerDays;
+
+        return (int) Math.Ceiling(percentageFactor * 100);
     }
 }
