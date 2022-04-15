@@ -984,7 +984,6 @@ MonoBehaviour:
   - {fileID: 4227389393091464361, guid: dbe39670ded67224798c42f3e31a7837, type: 3}
   - {fileID: 4227389393091464361, guid: 04f67453f5d6fa34082c39dec5f3575a, type: 3}
   - {fileID: 4227389393091464361, guid: 04f67453f5d6fa34082c39dec5f3575a, type: 3}
-  - {fileID: 4227389393091464361, guid: 04f67453f5d6fa34082c39dec5f3575a, type: 3}
   newsTemplates:
   - {fileID: 6878082842556346717, guid: d9daf92baa3ec29438d210c3d06c33d7, type: 3}
   - {fileID: 6878082842556346717, guid: cba136ee505dfa74596d554be189e3b4, type: 3}

@@ -21,7 +21,7 @@ public class PaperGenerator : MonoBehaviour
         {
             _cooldown = Random.Range(6, 15);
 
-            if (Random.Range(1, 6) == 4)
+            if (Random.Range(1, 12) == 4)
             {
                 GenerateNewsPaper();
             }
