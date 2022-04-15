@@ -16,7 +16,7 @@ public class WorkerMoraleScore : MonoBehaviour
 
     void Update()
     {
-        _text.text = $"{prefix}{Mathf.Round(_count * 10) / 10}/10";
+        _text.text = $"{prefix}{Mathf.Round(_count * 10) / 10}/5";
     }
 
     public void Set(float count)

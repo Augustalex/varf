@@ -31,7 +31,7 @@ public class CurrentReport : Paper
 
         float newOfficeScore = _gameManager.GetOfficeScore();
 
-        if (_reporter.dead + _reporter.accidents > (_reporter.hired / 10))
+        if (_reporter.dead + _reporter.accidents > (_reporter.hired / 20))
         {
             newOfficeScore -= 1;
         }
@@ -40,7 +40,7 @@ public class CurrentReport : Paper
         {
             newOfficeScore += .5f;
         }
-        
+
         _gameManager.SetOfficeScore(newOfficeScore);
         
         _hiredCount.Set(_reporter.hired);

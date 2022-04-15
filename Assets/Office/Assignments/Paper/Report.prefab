@@ -523,7 +523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Arbetsmoralunders\xF6kningsresultat: 4/10"
+  m_text: 'Kontorsbetyg: 4/5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -550,13 +550,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

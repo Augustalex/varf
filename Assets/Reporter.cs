@@ -7,23 +7,21 @@ using Random = UnityEngine.Random;
 public class Reporter : MonoBehaviour
 {
     public GameObject reportTemplate;
+    public GameObject finalNewsPaperTemplate;
     public Transform spawnPoint;
-    
-    [NonSerialized]
-    public int hired;
-    
-    [NonSerialized]
-    public int dead;
-    
-    [NonSerialized]
-    public int accidents;
-    
-    [NonSerialized]
-    public int boatsConstructed;
-    
+
+    [NonSerialized] public int hired;
+
+    [NonSerialized] public int dead;
+
+    [NonSerialized] public int accidents;
+
+    [NonSerialized] public int boatsConstructed;
+
     private static Reporter _instance;
-    private float _cooldown = 30;
+    private float _cooldown = 20;
     private bool _paused;
+    private GameManager _gameManager;
 
     public static Reporter Get()
     {
@@ -37,7 +35,7 @@ public class Reporter : MonoBehaviour
 
     void Start()
     {
-        
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     public void Pause()
@@ -53,21 +51,38 @@ public class Reporter : MonoBehaviour
     void Update()
     {
         if (_paused) return;
-        
+
         _cooldown -= Time.deltaTime;
 
         if (_cooldown < 0)
         {
-            _cooldown = 30;
+            _cooldown = 20;
 
-            GenerateReport();
+            if (_gameManager.GetOfficeScore() <= 0)
+            {
+                GenerateFinalNewsPaper();
+            }
+            else
+            {
+                GenerateReport();
+            }
         }
+    }
+
+    private void GenerateFinalNewsPaper()
+    {
+        var report = Instantiate(finalNewsPaperTemplate);
+
+        report.transform.position = spawnPoint.position;
+        report.transform.rotation = Quaternion.Euler(
+            0, 9, 0
+        );
     }
 
     private void GenerateReport()
     {
-        var report= Instantiate(reportTemplate);
-            
+        var report = Instantiate(reportTemplate);
+
         report.transform.position = spawnPoint.position;
         report.transform.rotation = Quaternion.Euler(
             0, 285, 0
