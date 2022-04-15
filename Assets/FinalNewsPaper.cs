@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FinalNewsPaper : Paper
 {
+    // TEMP
     private PaperGenerator _paperGenerator;
     private GameManager _gameManager;
     private Reporter _reporter;
