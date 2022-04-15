@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "D\xF6dsfall: 2"
+  m_text: 'Deaths: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6533c01573d182e428b98936270adaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: "D\xF6dsfall: "
+  prefix: 'Deaths: '
 --- !u!1 &1700361400226284435
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Olycksfall: 42'
+  m_text: 'Accidents: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3639adf272b430a4da3646391cc929f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: 'Olycksfall: '
+  prefix: 'Accidents: '
 --- !u!1 &3529667999790610360
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Anst\xE4llda: 300\n"
+  m_text: 'Hired: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a5cd007af651a408e2f410e633b457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: "Anst\xE4llda: "
+  prefix: 'Hired: '
 --- !u!114 &7644805020240076264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +457,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   approvalDecalTemplate: {fileID: 6903209991995839287, guid: 84448d4b36078b342b2b717db9231264, type: 3}
+--- !u!114 &3611395412645889517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183326625206278170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4db79cf3fd7f8429f6b694e5fe1f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6120453223643293094
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Kontorsbetyg: 4/5'
+  m_text: 'Office score: 1/5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -604,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d5b46312b46a24e924fa9304bfd600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: 'Kontorsbetyg: '
+  prefix: 'Office score: '
 --- !u!1 &6444510155154994442
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xC5STE GODK\xC4NNAS\n"
+  m_text: Approval required
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -953,7 +965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "F\xE4rdigst\xE4llda konstruktioner: 5\n"
+  m_text: 'Completed constructions: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -1034,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e834fddf6c6b40883d6dcddae4a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefix: "F\xE4rdigst\xE4llda konstruktioner: "
+  prefix: 'Completed constructions: '
 --- !u!1 &8511121231679358848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,20 +1251,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 33.859985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -32.5
+      value: -33.4
       objectReference: {fileID: 0}
     - target: {fileID: 6452372100923356135, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.6
+      value: -330.8
       objectReference: {fileID: 0}
     - target: {fileID: 8404996301429107874, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_text
-      value: "\xC5rlig rapport"
+      value: REPORT #1
       objectReference: {fileID: 0}
     - target: {fileID: 8404996301429107874, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_fontSize
@@ -1277,6 +1301,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2648944942922151541, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+--- !u!1 &8183326625206278170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5552821405044258011, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+  m_PrefabInstance: {fileID: 4368088739288952001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7141095854379769983 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6882860638425681086, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
