@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BoatConstruction;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -28,12 +30,24 @@ public class GameManager : MonoBehaviour
     private int _workers;
     private Reporter _reporter;
     private double _dayCooldown;
-    private int _boatProgress;
-    private bool _boatConstructionInProgress;
-    private int _boatAssignmentWorkerDays;
     private bool _paused;
 
     private float _officeScore = 5;
+    private static GameManager _instance;
+    private ConstructionManager _constructionManager;
+
+    public static GameManager Get()
+    {
+        return _instance;
+    }
+
+    private void Awake()
+    {
+        _instance = this;
+        _constructionManager = new ConstructionManager();
+
+        _constructionManager.JobCompleted += OnJobCompleted;
+    }
 
     void Start()
     {
@@ -54,49 +68,48 @@ public class GameManager : MonoBehaviour
     {
         _paused = false;
     }
-    
+
     private void Update()
     {
         if (_paused) return;
-        
-        if (_workers > 0)
-        {
-            if (Random.value < .001)
-            {
-                _workers -= 1;
-                _reporter.RegisterDeath(1);
-            }
 
-            if (Random.value < .01)
-            {
-                _reporter.ReportAccident(1);
-            }
-        }
-        
         if (_dayCooldown < 0)
         {
             _dayCooldown = 1;
 
-            if (_boatConstructionInProgress)
-            {
-                _boatProgress += _workers;
-
-                if (_boatProgress > _boatAssignmentWorkerDays)
-                {
-                    _boatConstructionInProgress = false;
-                    _reporter.BoatConstructed();
-                }
-            }
+            OnDayPassed();
         }
 
         _dayCooldown -= Time.deltaTime;
     }
 
+    private void OnDayPassed()
+    {
+        _constructionManager.DoDailyWork(_workers);
+
+        if (_workers > 0)
+        {
+            if (Random.value < .01)
+            {
+                _workers -= 1;
+                _reporter.RegisterDeath(1);
+            }
+
+            if (Random.value < .1)
+            {
+                _reporter.ReportAccident(1);
+            }
+        }
+    }
+
+    private void OnJobCompleted(ConstructionJob job)
+    {
+        _reporter.BoatConstructed();
+    }
+
     public void StartBoatConstructionAssignment(int workerDays)
     {
-        _boatProgress = 0;
-        _boatAssignmentWorkerDays = workerDays;
-        _boatConstructionInProgress = true;
+        _constructionManager.AddJob(workerDays);
     }
 
     public void GoToPlanningPhase()
@@ -117,26 +130,6 @@ public class GameManager : MonoBehaviour
         return _workers;
     }
 
-    public int GetBoatProgressionPercentage()
-    {
-        if (_boatConstructionInProgress)
-        {
-            var boatProgress = (double) _boatProgress;
-            var assignmentTotal = (double) _boatAssignmentWorkerDays;
-            double percentageFactor = boatProgress / assignmentTotal;
-            return (int) Math.Ceiling(percentageFactor * 100);
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    public bool HasBoatConstructionInProgress()
-    {
-        return _boatConstructionInProgress;
-    }
-
     public float GetOfficeScore()
     {
         return _officeScore;
@@ -145,5 +138,10 @@ public class GameManager : MonoBehaviour
     public void SetOfficeScore(float score)
     {
         _officeScore = score;
+    }
+
+    public ConstructionManager GetConstructionManager()
+    {
+        return _constructionManager;
     }
 }
