@@ -7,20 +7,21 @@ public abstract class Paper : MonoBehaviour
     public GameObject approvalDecalTemplate;
     private bool _approved;
 
-    public void Approve(Transform stampTransform)
+    public void Approve(Vector3 stampPosition, Quaternion stampRotation)
     {
         var decal = Instantiate(approvalDecalTemplate, transform);
         decal.transform.position = new Vector3(
-            stampTransform.position.x,
+            stampPosition.x,
             transform.position.y + .1f,
-            stampTransform.position.z
+            stampPosition.z
         );
-        decal.transform.rotation = stampTransform.rotation;
+        decal.transform.rotation = stampRotation;
 
         if (!_approved)
         {
             Enact();
         }
+
         _approved = true;
     }
 
@@ -34,7 +35,7 @@ public abstract class Paper : MonoBehaviour
             if (stamp)
             {
                 stamp.StampSound();
-                Approve(stamp.transform);
+                Approve(stamp.transform.position, stamp.transform.rotation);
             }
         }
     }

@@ -5,6 +5,7 @@ public class OfficePointer : MonoBehaviour
 {
     public GameObject pointer;
 
+    public Camera mainCamera;
     private Camera _camera;
     private GameManager _gameManager;
 
@@ -17,9 +18,12 @@ public class OfficePointer : MonoBehaviour
 
     void Update()
     {
+        return;
+
         if (_gameManager.currentPhase != GameManager.GamePhase.Planning) return;
 
-        var ray = _camera.ScreenPointToRay(Input.mousePosition);
+        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        // var ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 
         var isStamp = pointer && pointer.GetComponent<Stamp>() != null;
 
@@ -85,6 +89,7 @@ public class OfficePointer : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 50f))
             {
+                Debug.Log(ray);
                 if (hit.collider.CompareTag("Item"))
                 {
                     pointer = hit.collider.gameObject;

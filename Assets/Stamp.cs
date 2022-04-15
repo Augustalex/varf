@@ -14,6 +14,6 @@ public class Stamp : MonoBehaviour
     }
     public void StampSound()
     {
-        _source.Play(effect, .6f);
+        _source.Play(effect, .3f);
     }
 }

@@ -19,7 +19,7 @@ public class PaperGenerator : MonoBehaviour
 
         if (_cooldown < 0)
         {
-            _cooldown = Random.Range(5, 10);
+            _cooldown = Random.Range(6, 15);
 
             if (Random.Range(1, 6) == 4)
             {

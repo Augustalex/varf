@@ -80,26 +80,45 @@ public class GameManager : MonoBehaviour
             OnDayPassed();
         }
 
+        if (_workers > 0)
+        {
+            var jobCount = _constructionManager.GetAllJobs().Length;
+            var deathThreshold = (.05 * jobCount) * Time.deltaTime;
+            var value = Random.value;
+            if (value < deathThreshold)
+            {
+                try
+                {
+                    PeopleBase.Get().GetKillablePerson().Kill();
+                    _workers -= 100;
+                    _reporter.RegisterDeath(1);
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+
+            if (value < deathThreshold * 3f)
+            {
+                try
+                {
+                    PeopleBase.Get().GetKillablePerson().Hurt();
+                    _reporter.ReportAccident(1);
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+        }
+
         _dayCooldown -= Time.deltaTime;
     }
 
     private void OnDayPassed()
     {
         _constructionManager.DoDailyWork(_workers);
-
-        if (_workers > 0)
-        {
-            if (Random.value < .01)
-            {
-                _workers -= 1;
-                _reporter.RegisterDeath(1);
-            }
-
-            if (Random.value < .1)
-            {
-                _reporter.ReportAccident(1);
-            }
-        }
     }
 
     private void OnJobCompleted(ConstructionJob job)

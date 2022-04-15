@@ -16,9 +16,10 @@ public class BoatConstructionAssignment : Paper
         _workerDaysCount = GetComponentInChildren<WorkerDaysCountOnReport>();
 
         var actualCount = Random.Range(1000, 10000);
+        count = actualCount;
         _workerDaysCount.Set(actualCount);
     }
-    
+
     public override void Enact()
     {
         _gameManager.StartBoatConstructionAssignment(count);

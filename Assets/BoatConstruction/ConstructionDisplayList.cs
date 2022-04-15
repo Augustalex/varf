@@ -11,7 +11,7 @@ namespace BoatConstruction
         private readonly List<ConstructionDisplay> _displays = new List<ConstructionDisplay>();
         private ConstructionManager _constructionManager;
 
-        private const float OffsetY = 80;
+        private const float OffsetY = 65;
 
         void Start()
         {

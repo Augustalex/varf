@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ans\xF6kan"
+  m_text: Application
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xC5STE GODK\xC4NNAS\n"
+  m_text: APPROVAL REQUESTED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e290a76e117dd324785f6993b944a904, type: 2}
   m_sharedMaterial: {fileID: 297901811516896477, guid: e290a76e117dd324785f6993b944a904, type: 2}
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404996301429107874, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_text
-      value: 20 arbetare
+      value: 20  workers
       objectReference: {fileID: 0}
     - target: {fileID: 8404996301429107874, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_fontAsset
