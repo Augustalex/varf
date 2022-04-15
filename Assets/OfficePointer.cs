@@ -63,16 +63,20 @@ public class OfficePointer : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Desk") || hit.collider.CompareTag("TrashArea"))
                     {
-                        pointer.transform.position = hit.point + Vector3.up * 2;
+                        pointer.transform.position = hit.point + Vector3.up * 2.8f;
                     }
                 }
             }
+
+            var rotateAmount = Input.mouseScrollDelta.y * 10f;
+            pointer.transform.RotateAround(pointer.transform.position, Vector3.up, rotateAmount);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             if (pointer)
             {
+                pointer.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 pointer = null;
             }
         }
@@ -84,6 +88,11 @@ public class OfficePointer : MonoBehaviour
                 if (hit.collider.CompareTag("Item"))
                 {
                     pointer = hit.collider.gameObject;
+                    hit.rigidbody.constraints = RigidbodyConstraints.FreezeRotation |
+                                                RigidbodyConstraints.FreezePositionY;
+
+                    var rotation = pointer.transform.rotation.eulerAngles;
+                    pointer.transform.rotation = Quaternion.Euler(0, rotation.y, 0);
                 }
                 else if (hit.collider.GetComponent<Clickable>())
                 {

@@ -1206,6 +1206,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Report
       objectReference: {fileID: 0}
+    - target: {fileID: 3071979980419321466, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071979980419321466, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6108241799308307132, guid: e7db7c88a45dbdf4d95a6306276e6b21, type: 3}
       propertyPath: m_RootOrder
       value: 0
