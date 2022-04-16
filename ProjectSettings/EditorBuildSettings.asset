@@ -8,4 +8,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfficeScene.unity
     guid: 039ced11b0bce3b45861fbf2e89eee7d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 3a30f03d0b9968647bd01e2a85abe9b7, type: 2}
