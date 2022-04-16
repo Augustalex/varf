@@ -29,6 +29,8 @@ public abstract class Paper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
+
         if (other.CompareTag("Item"))
         {
             var stamp = other.GetComponent<Stamp>();

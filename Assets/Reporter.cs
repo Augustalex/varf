@@ -114,6 +114,6 @@ public class Reporter : MonoBehaviour
 
     public void ReportAccident(int count)
     {
-        accidents = count;
+        accidents += count;
     }
 }

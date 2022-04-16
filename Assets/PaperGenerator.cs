@@ -19,9 +19,9 @@ public class PaperGenerator : MonoBehaviour
 
         if (_cooldown < 0)
         {
-            _cooldown = Random.Range(6, 15);
+            _cooldown = Random.value < .5f ? Random.Range(4, 10) : Random.Range(7, 18);
 
-            if (Random.Range(1, 12) == 4)
+            if (Random.Range(1, 100) == 4)
             {
                 GenerateNewsPaper();
             }
@@ -35,7 +35,7 @@ public class PaperGenerator : MonoBehaviour
     private void GenerateNewsPaper()
     {
         if (_newsIndex >= newsTemplates.Length) return;
-        
+
         var paperTemplate = newsTemplates[_newsIndex++];
         var paper = Instantiate(paperTemplate);
 

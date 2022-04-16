@@ -15,7 +15,7 @@ public class BoatConstructionAssignment : Paper
         _gameManager = FindObjectOfType<GameManager>();
         _workerDaysCount = GetComponentInChildren<WorkerDaysCountOnReport>();
 
-        var actualCount = Random.Range(1000, 10000);
+        var actualCount = Random.Range(10000, 100000);
         count = actualCount;
         _workerDaysCount.Set(actualCount);
     }

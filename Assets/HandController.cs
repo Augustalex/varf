@@ -6,6 +6,7 @@ public class HandController : MonoBehaviour
     private ArmController _armController;
     private Animator _animationController;
     private float _stopHovering;
+    private bool _holding;
 
     void Start()
     {
@@ -19,9 +20,10 @@ public class HandController : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time < _stopHovering)
+        var hovering = Time.time < _stopHovering;
+        if (_holding || hovering)
         {
-            transform.localScale = new Vector3(1.1f, .5f, 1.1f);;
+            transform.localScale = new Vector3(1.05f, .5f, 1.05f);;
         }
         else
         {
@@ -37,11 +39,13 @@ public class HandController : MonoBehaviour
 
     private void OnDropped()
     {
+        _holding = false;
         _animationController.SetBool("Holding", false);
     }
 
     private void OnGrabbed()
     {
+        _holding = true;
         _animationController.SetBool("Holding", true);
     }
 

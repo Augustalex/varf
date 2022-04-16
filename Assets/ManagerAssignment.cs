@@ -31,7 +31,7 @@ public class ManagerAssignment : Paper
 
     private void OnKilled()
     {
-        for (int i = 0; i < Random.Range(2,4); i++)
+        for (int i = 0; i < Random.Range(8,16); i++)
         {
             StampInBlood();
         }
@@ -41,9 +41,9 @@ public class ManagerAssignment : Paper
     {
         var decal = Instantiate(bloodDecalTemplate, transform);
         decal.transform.position = new Vector3(
-            transform.position.x + (transform.localScale.x * (Random.value * 2f - 1f)),
+            transform.position.x + (transform.localScale.x * (Random.value * 2.2f - 1f)),
             transform.position.y + .1f,
-            transform.position.z + (transform.localScale.z * (Random.value * 2f - 1f))
+            transform.position.z + (transform.localScale.z * (Random.value * 2.2f - 1f))
         );
         decal.transform.rotation = Quaternion.Euler(
             0,
@@ -54,6 +54,8 @@ public class ManagerAssignment : Paper
 
     public override void Enact()
     {
-        FindObjectOfType<GameManager>().AddWorkers(100);
+        var gameManager = FindObjectOfType<GameManager>();
+        gameManager.AddWorkers(1);
+        gameManager.AddWorker(_person);
     }
 }

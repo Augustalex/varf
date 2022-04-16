@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class ArmController : MonoBehaviour
@@ -15,6 +11,9 @@ public class ArmController : MonoBehaviour
     public GameObject pointer;
     private bool _setted;
     public GameObject possiblePointer;
+    private bool _started;
+    private Vector3 _startingPosition;
+    private bool _doneCorrecting;
 
     public event Action Grabbed;
     public event Action Hovering;
@@ -22,34 +21,55 @@ public class ArmController : MonoBehaviour
 
     void Start()
     {
-        SetCursorPos(Screen.width / 2 + 500, Screen.height / 2);
+        _startingPosition = transform.position;
+        // SetCursorPos(Screen.width / 2 + 500, Screen.height / 2);
         _previousPosition = Input.mousePosition;
-        _startPosition = Input.mousePosition;
+        // _startPosition = Input.mousePosition;
         Cursor.visible = false;
     }
 
     void Update()
     {
-        if (!_setted && (Input.mousePosition - _startPosition).magnitude > 400)
+        if (!_started)
         {
-            // Debug.Log("NOW: " + Input.mousePosition + " - FROM: " + _startPosition + " - MAG: " +
-            //           (Input.mousePosition - _startPosition).magnitude);
-            SetCursorPos(Screen.width / 2 + 500, Screen.height / 2);
-            _setted = true;
+            transform.position = _startingPosition;
+            _previousPosition = _startingPosition;
+            _started = true;
             return;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _doneCorrecting = true;
+            Destroy(FindObjectOfType<StartInstructionsScreen>().gameObject);
+            FindObjectOfType<thankyou>().GetComponent<AudioSource>().Play();
+            Cursor.visible = false;
+        }
+        else if (!_doneCorrecting || Input.GetKey(KeyCode.Space))
+        {
+            Cursor.visible = true;
+            transform.position = _startingPosition;
         }
 
-        if (_setted)
-        {
-            _setted = false;
-            _previousPosition = Input.mousePosition;
-            _startPosition = Input.mousePosition;
-            return;
-        }
+        // if (!_setted && (Input.mousePosition - _startPosition).magnitude > 400)
+        // {
+        //     // Debug.Log("NOW: " + Input.mousePosition + " - FROM: " + _startPosition + " - MAG: " +
+        //     //           (Input.mousePosition - _startPosition).magnitude);
+        //     SetCursorPos(Screen.width / 2 + 500, Screen.height / 2);
+        //     _setted = true;
+        //     return;
+        // }
+        //
+        // if (_setted)
+        // {
+        //     _setted = false;
+        //     _previousPosition = Input.mousePosition;
+        //     _startPosition = Input.mousePosition;
+        //     return;
+        // }
 
         var currentMousePosition = Input.mousePosition;
 
-        var mouseDelta = (currentMousePosition - _previousPosition) * .02f;
+        var mouseDelta = (currentMousePosition - _previousPosition) * .032f;
         var toAdd = new Vector3(
             -mouseDelta.y,
             0,
@@ -169,6 +189,7 @@ public class ArmController : MonoBehaviour
         // hits[hits.Length - 1].transform.rotation = firstRotation;
     }
 
-    [DllImport("user32.dll")]
-    static extern bool SetCursorPos(int X, int Y);
+    //
+    // [DllImport("user32.dll")]
+    // static extern bool SetCursorPos(int X, int Y);
 }

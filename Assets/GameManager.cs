@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [NonSerialized] public Pointer pointer;
 
     private int _workers;
+    private List<Person> _workerPersons = new List<Person>();
     private Reporter _reporter;
     private double _dayCooldown;
     private bool _paused;
@@ -83,33 +84,22 @@ public class GameManager : MonoBehaviour
         if (_workers > 0)
         {
             var jobCount = _constructionManager.GetAllJobs().Length;
-            var deathThreshold = (.05 * jobCount) * Time.deltaTime;
+            var deathThreshold = (.01 * jobCount) * Time.deltaTime;
             var value = Random.value;
             if (value < deathThreshold)
             {
-                try
-                {
-                    PeopleBase.Get().GetKillablePerson().Kill();
-                    _workers -= 100;
-                    _reporter.RegisterDeath(1);
-                }
-                catch
-                {
-                    // ignored
-                }
+                var randomWorker = _workerPersons[Random.Range(0, _workerPersons.Count)];
+                randomWorker.Kill();
+                _workers -= 50;
+                _reporter.RegisterDeath(1);
+                _workerPersons.Remove(randomWorker);
             }
 
-            if (value < deathThreshold * 3f)
+            if (value < deathThreshold * 6f)
             {
-                try
-                {
-                    PeopleBase.Get().GetKillablePerson().Hurt();
-                    _reporter.ReportAccident(1);
-                }
-                catch
-                {
-                    // ignored
-                }
+                var randomWorker = _workerPersons[Random.Range(0, _workerPersons.Count)];
+                randomWorker.Hurt();
+                _reporter.ReportAccident(1);
             }
         }
 
@@ -140,7 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void AddWorkers(int workers)
     {
-        _workers += workers;
+        _workers += workers * 50;
         _reporter.Hire(workers);
     }
 
@@ -162,5 +152,10 @@ public class GameManager : MonoBehaviour
     public ConstructionManager GetConstructionManager()
     {
         return _constructionManager;
+    }
+
+    public void AddWorker(Person person)
+    {
+        _workerPersons.Add(person);
     }
 }
