@@ -33,7 +33,6 @@ public class ModernHandController : MonoBehaviour
 
     private void OnHovering()
     {
-        Debug.Log("HOVERING!");
         _stopHovering = Time.time + .2f;
     }
 

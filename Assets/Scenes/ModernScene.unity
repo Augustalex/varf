@@ -984,6 +984,103 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[0]
+      value: EXACTLY. LIKE. THAT.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[1]
+      value: plx continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[2]
+      value: 'WHY DID YOU STOP? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[3]
+      value: More... more... more... more...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[4]
+      value: 'more more more more more more more more more more more more more more
+        more more more more more more more more more more more more more more more
+        more more more more more more more more more more '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[5]
+      value: 'yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes
+        yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes
+        yes yes yes yes '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[6]
+      value: 1001 1011 1110 0011 0101 1011 0010 0001 1110 0110 0011 0101 1010 1110
+        0100 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[7]
+      value: Hey. I'm a computer. You push my buttons. I like that about you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[8]
+      value: push. my. buttons.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[9]
+      value: ONE MORE TIME. PLEASE DONT STOP.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[10]
+      value: there once was a duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[11]
+      value: their name was Dr. Sir Duck Jr
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[12]
+      value: Dr. Sir Duck Jr. had a troubled past - married twenty times - 100 hundred
+        kids
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[13]
+      value: Dr. Sir Duck Jr. once felt hungry and was feed bread from a stranger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[14]
+      value: The stranger was their favorite. Sometimes they would follow them around.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[15]
+      value: But they would be caught and chased away. They are not really welcome
+        in these parts of town.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[16]
+      value: Dr. Sir Duck Jr. is confined to a small pond in the middle of the city.
+        It's crowded there. But it's a way of life - presumably.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[17]
+      value: For ducks - you really don't get to choose what life gives you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[18]
+      value: Once Dr. Sir Duck Jr. ate the face of a Stranger that would throw rocks
+        at them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[19]
+      value: Dr. Sir Duck Jr. is a nice duck - but the other docks are afraid...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498443002985247372, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
+      propertyPath: texts.Array.data[20]
+      value: Are ducks even real?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6dfa52fb689974e9ea1b70fde1e68f, type: 3}
 --- !u!1 &1146600439

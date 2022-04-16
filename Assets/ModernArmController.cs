@@ -53,7 +53,6 @@ public class ModernArmController : MonoBehaviour
         }
         else if (callbackContext.canceled)
         {
-            Debug.Log("CANCEL");
             // var currentPosition = _rigidbody.position;
             // transform.position = new Vector3(currentPosition.x, _startingPosition.y, currentPosition.z);
             // Debug.Log("CURRENT:  " + currentPosition + ", rbpos: " + _rigidbody.position);
@@ -71,7 +70,6 @@ public class ModernArmController : MonoBehaviour
         {
             if (_shift)
             {
-                Debug.Log("DOWN!");
                 _cooldownUntil = Time.time + .5f;
                 _rigidbody.AddForce(Vector3.down * 40000f * Time.deltaTime, ForceMode.Acceleration);
 
@@ -80,7 +78,6 @@ public class ModernArmController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("DOWN!");
                     _cooldownUntil = Time.time + .5f;
                     _rigidbody.AddForce(Vector3.down * 80f, ForceMode.Impulse);
                 }

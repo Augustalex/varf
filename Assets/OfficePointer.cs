@@ -135,7 +135,6 @@ public class OfficePointer : MonoBehaviour
 
     private void ShiftPile(Paper[] hits)
     {
-        Debug.Log("hits: " + hits.Length);
         for (var i = 0; i < hits.Length; i++)
         {
             Debug.Log($"[{i}]: {hits[i].transform.position}");

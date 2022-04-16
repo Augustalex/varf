@@ -98,7 +98,6 @@ public class ArmController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Item"))
                 {
-                    Debug.Log("HIT! " + hit.collider.gameObject);
                     pointer = hit.collider.gameObject;
                     hit.rigidbody.constraints = RigidbodyConstraints.FreezeRotation |
                                                 RigidbodyConstraints.FreezePositionY;
