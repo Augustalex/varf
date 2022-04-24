@@ -1,17 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Computer.Screens;
 using UnityEngine;
 
-public class ScreenRoot : MonoBehaviour
+namespace Computer.Screens
 {
-    public event Action<ScreenRoot> ChangedScreen;
-
-    private ScreenController _screenController;
-
-    public void ChangeScreen(ScreenRoot newScreen)
+    public class ScreenRoot : MonoBehaviour
     {
-        ChangedScreen?.Invoke(newScreen);
+        public event Action<ScreenRoot> ChangedScreen;
+
+        public void ChangeScreen(ScreenRoot newScreen)
+        {
+            ChangedScreen?.Invoke(newScreen);
+        }
     }
 }

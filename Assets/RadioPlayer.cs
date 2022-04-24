@@ -11,6 +11,17 @@ public class RadioPlayer : MonoBehaviour
 
     public AudioSource hitSource;
     private float _hitCooldownUntil;
+    private static RadioPlayer _instance;
+
+    public static RadioPlayer Get()
+    {
+        return _instance;
+    }
+
+    void Awake()
+    {
+        _instance = this;
+    }
 
     void Start()
     {
@@ -30,10 +41,15 @@ public class RadioPlayer : MonoBehaviour
         }
     }
 
-    private void PlayRandomSong()
+    public void PlayRandomSong()
     {
         _audioSource.Stop();
         _audioSource.clip = songs[Random.Range(0, songs.Length)];
         _audioSource.Play();
+    }
+
+    public void Stop()
+    {
+        _audioSource.Stop();
     }
 }

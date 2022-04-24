@@ -13,15 +13,24 @@ namespace Computer.Screens
         {
             _screenRoot = GetComponent<ScreenRoot>();
             _screenController = GetComponentInParent<ScreenController>();
-
+        }
+        
+        private void OnEnable()
+        {
             _screenController.Next += OnNext;
             _screenController.Previous += OnPrevious;
             _screenController.OK += OnOK;
         }
 
+        private void OnDisable()
+        {
+            _screenController.Next -= OnNext;
+            _screenController.Previous -= OnPrevious;
+            _screenController.OK -= OnOK;
+        }
+
         private void OnOK()
         {
-            Debug.Log("CHANGE SCREEN");
             _screenRoot.ChangeScreen(mainScreen);
         }
 

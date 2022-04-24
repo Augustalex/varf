@@ -13,10 +13,19 @@ namespace Computer.Screens
         public string[] texts;
         private float _cooldownUntil;
 
+        public ScreenRoot whenDone;
+
         void Awake()
         {
             _screenController = GetComponentInParent<ScreenController>();
             _text = GetComponentInChildren<TMP_Text>();
+
+            GenerateNewText();
+        }
+
+        public void GenerateNewText()
+        {
+            _text.text = texts[Random.Range(0, texts.Length)];
         }
 
         private void OnEnable()
@@ -38,7 +47,7 @@ namespace Computer.Screens
             if (Time.time < _cooldownUntil) return;
             _cooldownUntil = Time.time + .1f;
 
-            _text.text = texts[Random.Range(0, texts.Length)];
+            GetComponent<ScreenRoot>().ChangeScreen(whenDone);
         }
 
         protected virtual void OnPrevious()
