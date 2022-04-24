@@ -1,10 +1,6 @@
 using System;
-using System.Linq;
-using Cinemachine.Utility;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.UI;
 
 public class ModernArmController : MonoBehaviour
 {
